@@ -1,14 +1,8 @@
 import './App.css';
-import About from './components/About';
 import Navbar from './components/Navbar';
 import TextForm from './components/TextForm';
 import React, {useState} from 'react';
 import Alert from './components/Alert';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route
-} from "react-router-dom";
 
 function App() {
   let pinkMode = {
@@ -77,18 +71,9 @@ function App() {
 
   return (
     <>
-    <Router>
     <Navbar title="TextUtils" mode={mode} handleMode={handleMode} />
     <Alert alert={alert} />
-    <Switch>
-      <Route exact path="/#/about">
-        <About/>
-      </Route>
-      <Route path="/">
-        <TextForm showAlert={showAlert} heading="Enter The Text To Analyze" mode={mode} />
-      </Route>
-    </Switch>
-    </Router>
+    <TextForm showAlert={showAlert} heading="Enter The Text To Analyze" mode={mode} />
     </>
   );
 }
