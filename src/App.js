@@ -81,7 +81,7 @@ function App() {
     <Navbar title="TextUtils" mode={mode} handleMode={handleMode} />
     <Alert alert={alert} />
     <Switch>
-      <Route path="/about">
+      <Route exact path="/#/about">
         <About/>
       </Route>
       <Route path="/">
