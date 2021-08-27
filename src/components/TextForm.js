@@ -22,9 +22,7 @@ export default function TextForm(props) {
     }
 
     const handleCopy = ()=>{
-        let txt = document.getElementById("mybox");
-        txt.select();
-        navigator.clipboard.writeText(txt.value);
+        navigator.clipboard.writeText(text);
         props.showAlert("Copied to clipboard", "success");
     }
 
@@ -59,19 +57,19 @@ export default function TextForm(props) {
             <div className="mb-3 container">
                 <textarea className="form-control" style={{backgroundColor:props.mode.backgroundColor, color:props.mode.color}} value={text} onChange={handleOnChange} id="mybox" rows="8"></textarea>
             </div>
-            <button className="btn btn-primary m-1" onClick={handleUpClick}>Convert to Uppercase</button>
-            <button className="btn btn-warning m-1" onClick={handleLoClick}>Convert to Lowercase</button>
-            <button className="btn btn-success m-1" onClick={handleCapClick}>Convert to Capitalize First</button>
-            <button className="btn btn-info m-1" onClick={handleCopy}>Copy Text</button>
-            <button className="btn btn-secondary m-1" onClick={handleExtraSpaces}>Remove Extra Spaces</button>
-            <button className="btn btn-danger m-1" onClick={handleClearClick}>Clear Text</button>
+            <button disabled={text.length===0} className="btn btn-primary m-1" onClick={handleUpClick}>Convert to Uppercase</button>
+            <button disabled={text.length===0} className="btn btn-warning m-1" onClick={handleLoClick}>Convert to Lowercase</button>
+            <button disabled={text.length===0} className="btn btn-success m-1" onClick={handleCapClick}>Convert to Capitalize First</button>
+            <button disabled={text.length===0} className="btn btn-info m-1" onClick={handleCopy}>Copy Text</button>
+            <button disabled={text.length===0} className="btn btn-secondary m-1" onClick={handleExtraSpaces}>Remove Extra Spaces</button>
+            <button disabled={text.length===0} className="btn btn-danger m-1" onClick={handleClearClick}>Clear Text</button>
         </div>
         <div className="container my-3">
             <h2>Your text summary</h2>
-            <p>{text.split(" ").length} words and {text.length} characters</p>
-            <p>{0.008 * text.split(" ").length} Minutes to read</p>
+            <p>{text.split(/\s+/).filter((ele)=>{return ele.length!==0}).length} words and {text.length} characters</p>
+            <p>{0.008 * text.split(/\s+/).filter((ele)=>{return ele.length!==0}).length} Minutes to read</p>
             <h2>Preview</h2>
-            <pre>{text.length>0?text:"Enter your text to preview it here."}</pre>
+            <p>{text.length>0?text:"Nothing to preview."}</p>
         </div>
         </>
     )

@@ -20,10 +20,10 @@ export default function Navbar(props) {
                                 Themes
                             </a>
                             <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a className="dropdown-item" onClick={()=>{props.handleMode("light")}} href="javascript:void(0);">Light Mode</a></li>
-                                <li><a className="dropdown-item" onClick={()=>{props.handleMode("dark")}} href="javascript:void(0);">Dark Mode</a></li>
-                                <li><a className="dropdown-item" onClick={()=>{props.handleMode("blue")}} href="javascript:void(0);">Blue Mode</a></li>
-                                <li><a className="dropdown-item" onClick={()=>{props.handleMode("pink")}} href="javascript:void(0);">Pink Mode</a></li>
+                                <li><a className="dropdown-item" onClick={()=>{props.handleMode("light")}} href="#">Light Mode</a></li>
+                                <li><a className="dropdown-item" onClick={()=>{props.handleMode("dark")}} href="#">Dark Mode</a></li>
+                                <li><a className="dropdown-item" onClick={()=>{props.handleMode("blue")}} href="#">Blue Mode</a></li>
+                                <li><a className="dropdown-item" onClick={()=>{props.handleMode("pink")}} href="#">Pink Mode</a></li>
                             </ul>
                         </li>
                     </ul>
